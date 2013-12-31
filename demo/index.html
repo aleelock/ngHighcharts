@@ -1,31 +1,43 @@
-<html ng-app="chartDemo">
+<html>
     <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-        <script src="http://code.highcharts.com/highcharts.src.js"></script>
+        <script src="http://code.highcharts.com/stock/highstock.js"></script>
         <script src="../src/directives/ng-highcharts.js"></script>
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css" rel="stylesheet">
 
+        <style>
+            #chart1{
+                height:400px;
+            }
+            #json{
+                display:block;
+                width: 100%;
+                height: 400px;
+            }
+        </style>
     </head>
-    <body>
+    <body ng-app="myapp">
+    <h2>Highchart-ng example</h2>
 
-    <div role="main" class="view-container container" ng-controller="DemoCtrl">
-        <h3>ngHighcharts Demo</h3>
-        <div data-ng-show="parseError" class="alert alert-danger">
-            <h5>Error updating chart</h5>
-            <p>{{ parseError }}</p>
-        </div>
+    <div class="container-fluid" ng-controller="myctrl">
         <div class="row">
-            <div class="col-md-6"><div data-highchart data-options="chartData1" width="300" height="400"></div></div>
-            <div class="col-md-6">
-                <button ng-click="updateChart()" class="btn btn-primary">Update chart</button>
-                <textarea class="form-control" rows="20" cols="80" ng-model="chart1Json">{{ chart1Json }}</textarea>
+
+            <div class="span6">
+                <textarea id="json">{{json}}</textarea>
+                <button class="btn" ng-click='doApply()'>ApplyTextArea</button>
+                <button class="btn" ng-click='doApply1()'>Apply1</button>
+                <button class="btn" ng-click='doApply2()'>Apply2</button>
+                <button class="btn" ng-click='doApply3()'>Apply3</button>
             </div>
+
+            <highchart id="chart1" data-options="chartConfig" class="span6" data-loading="loadingFlag"></highchart>
 
         </div>
 
     </div>
+
     <script src="./demo.js"></script>
     </body>
 </html>
