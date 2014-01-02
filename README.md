@@ -10,8 +10,8 @@
 * html代码:
 ```html5
 <highchart data-options="myChartConfig" data-loading="myLoadingFlag"></highchart>
-/* 其中 myChartConfig 和 myLoadingFlag 为随意起的名字 */
 ```
+其中 myChartConfig 和 myLoadingFlag 为随意起的名字
 
 * js代码:
 ```js
